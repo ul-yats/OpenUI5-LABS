@@ -1,0 +1,131 @@
+<mvc:View
+	controllerName="zjblessons.Worklist.controller.Worklist"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:semantic="sap.f.semantic">
+
+	<semantic:SemanticPage
+		id="page"
+		headerPinnable="false"
+		toggleHeaderOnTitleClick="false">
+		<semantic:titleHeading>
+			<Title text="{i18n>worklistTitle}" />
+		</semantic:titleHeading>
+		<semantic:content>
+			<Table
+				id="table"
+				width="auto"
+				items="{
+					path: '/zjblessons_base_Materials',
+					sorter: {
+						path: 'CreatedBy',
+						descending: false
+					}
+				}"
+				noDataText="{worklistView>/tableNoDataText}"
+				busyIndicatorDelay="{worklistView>/tableBusyDelay}"
+				growing="true"
+				growingThreshold="15"
+				growingScrollToLoad="true"
+				updateFinished="onUpdateFinished">
+
+				<headerToolbar>
+					<Toolbar>
+						<Title id="tableHeader" text="{worklistView>/worklistTableTitle}"/>
+						<ToolbarSpacer/>
+						<Button 
+							text='{i18n>CreateButton}'
+							icon='{i18n>iSave}'
+							press='onPressCreateMaterial'
+							type='Emphasized'/>
+						<SearchField
+							id="searchFieldMaterialText"
+							tooltip="{i18n>worklistSearchTooltip}"
+							search="onSearchMaterialText"
+							width="auto"
+							placeholder="{i18n>ttlMaterialText}">
+						</SearchField>
+						<ToolbarSeparator />
+						<SearchField
+							id="searchFieldCreatedByFullName"
+							tooltip="{i18n>worklistSearchTooltip}"
+							search="onSearhCreatedByFullName"
+							width="auto"
+							placeholder="{i18n>ttlCreatedByFullName}">
+						</SearchField>
+					</Toolbar>
+				</headerToolbar>
+
+				<columns>
+					<Column id="MaterialIDColumn">
+						<Text text="{i18n>MaterialIDColumnTitle}" id="nameMaterialIDTitle"/>
+					</Column>
+					<Column id="MaterialTextColumn">
+						<Text text="{i18n>MaterialTextColumnTitle}" id="nameMaterialTextTitle"/>
+					</Column>
+					<Column id="MaterialDescriptionColumn">
+						<Text text="{i18n>MaterialDescriptionColumnTitle}" id="nameMateriaDescriptionTitle"/>
+					</Column>
+					<Column id="CreatedByFullNameColumn">
+						<Text text="{i18n>CreatedByFullNameColumnTitle}" id="CreatedByFullNameTitle"/>
+					</Column>
+					<Column id="CreatedColumn">
+						<Text text="{i18n>CreatedColumnTitle}" id="CreatedTitle"/>
+					</Column>
+					<Column id="ModifiedByFullNameColumn">
+						<Text text="{i18n>ModifiedByFullNameColumnTitle}" id="ModifiedByFullNameTitle"/>
+					</Column>
+					<Column id="ModifiedColumn">
+						<Text text="{i18n>ModifiedColumnTitle}" id="ModifiedTitle"/>
+					</Column>
+					<Column id="GroupIDColumn">
+						<Text text="{i18n>GroupIDColumnTitle}" id="GroupIDTitle"/>
+					</Column>
+					<Column id="SubGroupIDColumn">
+						<Text text="{i18n>SubGroupIDColumnTitle}" id="SubGroupIDTitle"/>
+					</Column>
+					<Column
+					width="5%"/>
+				</columns>
+
+				<items>
+					<ColumnListItem
+						type="Navigation"
+						press="onPress">
+						<cells>
+							<ObjectIdentifier
+								title="{MaterialID}"/>
+							<ObjectIdentifier
+								title="{MaterialText}"/>
+							<ObjectIdentifier
+								title="{MaterialDescription}"/>
+							<ObjectIdentifier
+								title="{CreatedByFullName}"/>
+							<ObjectIdentifier
+								title="{Created}"/>
+							<ObjectIdentifier
+								title="{ModifiedByFullName}"/>
+							<ObjectIdentifier
+								title="{
+									path: 'Modified',
+									type: 'sap.ui.model.type.DateTime',
+									formatOptions:{
+										pattern: 'HH:mm dd/MM/yyyy'
+									}
+								}"/>
+							<ObjectIdentifier
+								title="{GroupID}"/>
+							<ObjectIdentifier
+								title="{SubGroupID}"/>
+							<Button
+								tooltip='{i18n>ttlDelete}'
+								icon='{i18n>iDelete}'
+								press='onPressDeleteEntry'
+							/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</semantic:content>
+	</semantic:SemanticPage>
+</mvc:View>
