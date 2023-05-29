@@ -1,1 +1,1 @@
-# OpenUI5-LABS
+# OpenUI5-Courses
