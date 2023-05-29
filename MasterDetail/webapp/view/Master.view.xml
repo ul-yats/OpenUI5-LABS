@@ -1,0 +1,79 @@
+<mvc:View
+	controllerName="zjblessons.MasterDetail.controller.Master"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	xmlns="sap.m"
+	xmlns:semantic="sap.m.semantic">
+
+	<semantic:MasterPage
+		title="{i18n>ttlMaster}"
+		id="page"
+		showNavButton="false">
+		<semantic:content>
+			<List
+				id="list"
+				class='sapUiSizeCompact'
+				busyIndicatorDelay="{masterView>/delay}"
+				noDataText="{masterView>/noDataText}"
+				mode="{= ${device>/system/phone} ? 'None' : 'SingleSelectMaster'}"
+				growing="true"
+				growingScrollToLoad="true"
+				updateFinished="onUpdateFinished"
+				selectionChange="onSelectionChange">
+
+					<StandardListItem
+						title="{i18n>ttlAll}"
+					>
+						<customData>
+							<core:CustomData
+								key="All"
+							>
+							</core:CustomData>
+						</customData>
+					</StandardListItem>
+					<StandardListItem
+						title="{i18n>ttlGroups}"
+					>
+						<customData>
+							<core:CustomData
+								key="Groups"
+							>
+							</core:CustomData>
+						</customData>
+					</StandardListItem>
+					<StandardListItem
+						title="{i18n>ttlSubGroups}"
+					>
+						<customData>
+							<core:CustomData
+								key="SubGroups"
+							>
+							</core:CustomData>
+						</customData>
+					</StandardListItem>
+					<StandardListItem
+						title="{i18n>ttlRegions}"
+					>
+						<customData>
+							<core:CustomData
+								key="Regions"
+							>
+							</core:CustomData>
+						</customData>
+					</StandardListItem>
+					<StandardListItem
+						title="{i18n>ttlPlants}"
+					>
+						<customData>
+							<core:CustomData
+								key="Plants"
+							>
+							</core:CustomData>
+						</customData>
+					</StandardListItem>
+			</List>
+		</semantic:content>
+
+	</semantic:MasterPage>
+
+</mvc:View>
