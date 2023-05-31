@@ -1,0 +1,95 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core">
+	<VBox class="sapUiSmallMargin">
+		<f:Form
+			editable="true">
+			<f:title>
+				<core:Title text="{i18n>ttlViewMode}" />
+			</f:title>
+			<f:layout>
+				<f:ResponsiveGridLayout
+					labelSpanXL="4"
+					labelSpanL="4"
+					labelSpanM="12"
+					labelSpanS="12"
+					adjustLabelSpan="false"
+					emptySpanXL="0"
+					emptySpanL="0"
+					emptySpanM="0"
+					emptySpanS="0"
+					columnsXL="2"
+					columnsL="2"
+					columnsM="1"
+					singleContainerFullSize="false" />
+			</f:layout>
+			<f:formContainers>
+				<f:FormContainer title="{i18n>ttlText}">
+					<f:formElements>
+						<f:FormElement label="{i18n>lMaterialText}">
+							<f:fields>
+								<Text text="{MaterialText}"/>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="{i18n>lMaterialDescription}">
+							<f:fields>
+								<Text text="{MaterialDescription}" />
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="{i18n>ttlMaterialRating}">
+							<f:fields>
+								<Text text="{Rating}" />
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+                <f:FormContainer title="{i18n>ttlGroupsInfo}">
+					<f:formElements>
+					 	<f:FormElement label="{i18n>lGroupText}">
+							<f:fields>
+								<Text text="{GroupText}" />
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="{i18n>lSubGroupText}">
+							<f:fields>
+								<Text text="{SubGroupText}" />
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+				<f:FormContainer title="{i18n>ttlCreationInfo}">
+					<f:formElements>
+						<f:FormElement label="{i18n>lCreated}">
+							<f:fields>
+								<Text text="{Created}" />
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="{i18n>lCreatedBy}">
+							<f:fields>
+								<Text text="{
+									parts: ['CreatedByFullName'],
+									formatter: '.formatter.nameFormatter'
+								}" />
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="{i18n>lModified}">
+							<f:fields>
+								<Text text="{Modified}"/>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="{i18n>lModifiedBy}">
+							<f:fields>
+								<Text text="{
+									parts: ['ModifiedByFullName', 'Modified'],
+									formatter: '.formatter.modifiedFormatter'
+								}" />
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+			</f:formContainers>
+		</f:Form>
+	</VBox>
+</core:FragmentDefinition>
